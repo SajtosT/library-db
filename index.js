@@ -14,7 +14,7 @@ const pool = new Pool({
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.sendFile(path.join(__dirname, 'templates/index.html'));
 })
 
 app.listen(port, () => {
