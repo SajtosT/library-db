@@ -1,0 +1,22 @@
+{
+  "name": "library_list",
+  "version": "1.0.0",
+  "description": "expressjs connect",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SajtosT/library-db.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SajtosT/library-db/issues"
+  },
+  "homepage": "https://github.com/SajtosT/library-db#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
