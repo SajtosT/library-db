@@ -1,30 +1,44 @@
-document.getElementById("save").addEventListener("click", function (e) {
-  e.preventDefault();
+$doc = $(document)
+$doc.ready(() => { 
+  $doc.getElementById("save").addEventListener("click"), function (e) { e.preventDefault();
+};
 
-  var data = {
-    title: document.getElementById("title").value,
-    author: document.getElementById("author").value,
-    isbn: document.getElementById("isbn").value,
-    year: document.getElementById("year").value,
-    publisher: document.getElementById("publisher").value,
-  };
 
-  fetch("http://localhost:3000/books", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(function (response) {
-    if (response.ok) {
-      alert("Book saved successfully!");
-    } else {
-      alert("Something went wrong.");
-    }
-  })
-  .catch(function (error) {
-    console.error("Network or server error:", error);
-    alert("Couldn't join to server.");
-  });
+// Books POST function
+function createBook() {
+  var title = $("#title").val().trim();
+  var author = $("#author").val().trim();
+  var isbn = $("#isbn").val().trim();
+  var year = $("#year").val().trim();
+  var publisher = $("#publisher").val().trim();
+
+if (!title || !author || !publisher) {
+    alert("This field cannot be empty.");
+    return;
+  }
+
+if (!/^\d{4}$/.test(year) || year < 1500 || year > 2099) {
+    alert("Invalid number.");
+    return;
+  }
+
+if (!/^\d{10}(\d{3})?$/.test(isbn)) {
+    alert("Must be 10 or 13 characters long.");
+    return;
+  }
+
+}
 });
+
+
+// Create button function
+$("#save").on("click", function () {
+    createBook();
+});
+
+
+
+
+
+
+
